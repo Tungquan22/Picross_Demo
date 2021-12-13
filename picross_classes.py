@@ -4,7 +4,7 @@ import random
 class Board:
     ''' Initiate the playing board. '''
 
-    def __init__(self, size):
+    def __init__(self, size=[4, 4]):
         self.size = size
         self.width = self.size[0]
         self.length = self.size[1]
@@ -62,8 +62,8 @@ class Player:
 
     def choose(self, choice):
         self.history.append(choice)
-        x = choice[0]
-        y = choice[1]
+        x = choice[0] - 1
+        y = choice[1] - 1
         if self.playing_board.answer[y][x] == 1:
             self.playing_board.empty_board[y][x] = "X"
             self.score += 1
